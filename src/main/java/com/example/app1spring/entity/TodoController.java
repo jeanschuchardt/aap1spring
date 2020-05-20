@@ -1,6 +1,7 @@
 package com.example.app1spring.entity;
 
 import com.example.app1spring.services.TodoService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,12 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
+    @ApiOperation(
+            value = "Retrieve all todos for a user by passing in his name",
+            notes = "A list of matching todos is returned. Current pagination is not supported.",
+            response = Todo.class,
+            responseContainer = "List",
+            produces = "application/json")
     @GetMapping("/users/{name}/todos")
     public List<Todo> retrieveTodos(@PathVariable String name) {
         return todoService.retrieveTodos(name);
