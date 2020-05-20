@@ -14,7 +14,7 @@ import java.util.List;
 public class TodoController {
     @Autowired
     private TodoService todoService;
-ASDasd
+
     @ApiOperation(
             value = "Retrieve all todos for a user by passing in his name",
             notes = "A list of matching todos is returned. Current pagination is not supported.",
