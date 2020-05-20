@@ -42,8 +42,7 @@ public class TodoControllerIT {
 
     @Test
     public void addTodo() throws Exception {
-        Todo todo = new Todo(-1, "Jill", "Learn Hibernate", new Date(),
-                false);
+        Todo todo = new Todo(-1, "Jill", "Learn Hibernate", new Date(), false);
         URI location = template
                 .postForLocation(createUrl("/users/Jill/todos"), todo);
         assertThat(location.getPath(),
